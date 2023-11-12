@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animasi Bintang Jatuh dengan Musik, Teks Mesin Ketik, dan Lirik</title>
+    <style>
+        body {
+            background-color: #141313;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            animation: star-fall 2s linear infinite;
+        }
+
+        @keyframes star-fall {
+            0% {
+                transform: translateY(-10vh);
+                opacity: 1
+            }
+
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+
+        .music {
+            margin-top: 20px;
+        }
+
+        .typing-text {
+            color: #fff;
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #FFF;
+            animation: typing 5s steps(40) infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .lyrics {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function createStar() {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            star.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(star);
+            setTimeout(() => {
+                star.remove();
+            }, 2000);
+        }
+
+        setInterval(createStar, 100);
+    </script>
+    <audio class="music" controls autoplay loop>
+        <source src="nadhif-basalamah-penjaga-hati (mp3cut.net).mp3" type="audio/mp3">
+    </audio>
+    <p class="typing-text">Aku diciptakan untuk mencarimu, menunggumu dan menjadi milikmu selamanya!! I LOVE YOU SO MUCH MANUSIA BAIK HATIII</p>
+</body>
+
+</html>
